@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div id="calendar"></div>
+
+<div id="appointment-form"></div>
+    <h3>Book an Appointment</h3>
+    <select id="available-slots"></select>
+    <button id="book-appointment-btn">Book Appointment</button>
+</div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Initialize FullCalendar
+        let calendarEl = document.getElementById('calendar');
+        let calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: '/appointments',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'dayGridMonth,timeGridWeek,timeGridDay'
+            }
+        });
+        calendar.render();
+
+        // Load available slots into dropdown
+        $.get('/available_slots', function (slots) {
+            let slotSelect = $('#available-slots');
+            slots.forEach(slot => {
+                slotSelect.append(new Option(
+                    `${slot.doctor_name} - ${new Date(slot.start).toLocaleString()}`,
+                    JSON.stringify(slot)
+                ));
+            });
+        });
+
+        // Booking an appointment
+        $('#book-appointment-btn').on('click', function () {
+            let selectedSlot = JSON.parse($('#available-slots').val());
+            $.ajax({
+                url: '/book_appointment',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    doctor_name: selectedSlot.doctor_name,
+                    start: selectedSlot.start,
+                    end: selectedSlot.end
+                }),
+                success: function (response) {
+                    alert(response.message);
+                    // Refresh the calendar to display the new appointment
+                    calendar.refetchEvents();
+                },
+                error: function (error) {
+                    alert(error.responseJSON.message);
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="section-1">
+        <div class="appointment-search-container">
+            <h3>Find Personalized Healthcare Solutions</h3>
+            <form class="appointment-search" method="POST">
+            <!--*doctor-search-box**-->
+            <div class="appo-search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input id="specialist" name="specialist" type="text" placeholder="Search Doctor Here or For Advice">
+            </div>
+            <!--*set-your-location**-->
+            <div class="appo-search-box">
+                <i class="fa-solid fa-location-dot"></i>
+                <input id="location" name="location" type="text" placeholder="Set Your Location">
+            </div>
+            <!--*btn********-->
+            <button type="submit" class="btn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            </form>
+        </div>
+
+       <table class="max-w-[90%] border-[1px] mt-[20px]">
+        <tr >
+            <th>Doctor Name</th>
+            <th>Doctor Specialization</th>
+            <th>Doctor Location</th>
+            <th>Doctor Fees</th>
+            <th>Doctor Clinic_name</th>
+            <th>Doctor Experience</th>
+            <th>Appointment</th>
+        </tr>
+        
+            {% for dc in doctor_data %}
+            {% if(dc.name!="Not available") %}
+            <tr>
+                    
+                    <td>{{dc.name}}</td>
+                        <td>{{dc.specialization}}</td>
+                        <td>{{dc.location}}</td>
+                    <td>{{dc.consultation_fee}}</td>
+                <td>{{dc.clinic_name}}</td>
+            <td>{{dc.experience}}</td>
+            <td>
+                <form method="POST" action="/book_appointment">
+                    <input type="hidden" name="doctor_name" value="{{ dc.name }}">
+                    <input type="hidden" name="specialization" value="{{ dc.specialization }}">
+                    <input type="hidden" name="location" value="{{ dc.location }}">
+                    <input type="hidden" name="consultation_fee" value="{{ dc.consultation_fee }}">
+                    <input type="hidden" name="clinic_name" value="{{ dc.clinic_name }}">
+                    <input type="hidden" name="experience" value="{{ dc.experience }}">
+                    <button type="submit" class="btn">Book</button>
+                </form>
+            </td>
+            </tr>
+                
+                {% endif %}
+                {% endfor %}
+            
+       </table>
+       </div>
+    </div>
+    
+</div>
+<script>
+
+const btn=document.querySelector('.btn')
+
+</script>
+
+{% endblock %}

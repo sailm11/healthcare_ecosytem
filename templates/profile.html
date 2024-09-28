@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main-container">
+  <div class="container">
+    <div class="file-section">
+      <form action="/profile" method="POST">
+        <div class="space-y-12">
+
+          <div class="border-b border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
+
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div class="sm:col-span-3">
+                <label for="first_name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                <div class="mt-2">
+                  <input type="text" name="first_name" id="first_name" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                <label for="last_name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                <div class="mt-2">
+                  <input type="text" name="last_name" id="last_name" autocomplete="family-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="age" class="block text-sm font-medium leading-6 text-gray-900">Age</label>
+                <div class="mt-2">
+                  <input type="number" name="age" id="age" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="profession" class="block text-sm font-medium leading-6 text-gray-900">Profession</label>
+                <div class="mt-2">
+                  <input type="text" name="profession" id="profession"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="working_hours" class="block text-sm font-medium leading-6 text-gray-900">Working hours(per
+                  day)</label>
+                <div class="mt-2">
+                  <input type="text" name="working_hours" id="working_hours"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="gender" class="block text-sm font-medium leading-6 text-gray-900">Gender</label>
+                <div class="mt-2">
+                  <select id="gender" name="gender" autocomplete="gender"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <option>select</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="height" class="block text-sm font-medium leading-6 text-gray-900">Height(cm)</label>
+                <div class="mt-2">
+                  <input type="number" name="height" id="height"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="weigth" class="block text-sm font-medium leading-6 text-gray-900">Weigth(kg)</label>
+                <div class="mt-2">
+                  <input type="text" name="weigth" id="weigth"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="border-b surgery-form border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Past surgical/medical history</h2>
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div class="sm:col-span-3">
+                <label for="previous_surgery_name" class="block text-sm font-medium leading-6 text-gray-900">Pervious
+                  Surgery name</label>
+                <div class="mt-2">
+                  <input type="text" name="previous_surgery_name" id="previous_surgery_name" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                <label for="previous_surgery_date" class="block text-sm font-medium leading-6 text-gray-900">Pervious
+                  Surgery Date</label>
+                <div class="mt-2">
+                  <input type="date" name="previous_surgery_date" id="previous_surgery_date" autocomplete="family-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="complications_during_surgery"
+                  class="block text-sm font-medium leading-6 text-gray-900">Complications During Surgery (if
+                  any)</label>
+                <div class="mt-2">
+                  <input type="text" name="complications_during_surgery" id="complications_during_surgery"
+                    autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+
+              </div>
+
+              <div class="sm:col-span-4">
+                <label for="anestesia_history" class="block text-sm font-medium leading-6 text-gray-900">Anesthesia
+                  History:</label>
+                <div class="mt-2">
+                  <select id="anestesia_history" name="anestesia_history" autocomplete="anestesia_history"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <option value="none">None</option>
+                    <option value="had_before_no_complications">Had anesthesia before (no complications)</option>
+                    <option value="had_before_complications">Had anesthesia before (with complications)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="border-b medical-history-form border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">General Medical History</h2>
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+              <div class="sm:col-span-3">
+                <label for="chronic_conditions" class="block text-sm font-medium leading-6 text-gray-900">Chronic
+                  Conditions:</label>
+                <div class="mt-2">
+                  <select id="chronic_conditions" name="chronic_conditions" autocomplete="chronic_conditions"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                    <option value="diabetes">Diabetes</option>
+                    <option value="hypertension">Hypertension</option>
+                    <option value="asthma">Asthma</option>
+                    <option value="heart_disease">Heart Disease</option>
+                    <option value="none">None</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="sm:col-span-3">
+                <label for="current_medications" class="block text-sm font-medium leading-6 text-gray-900">Current
+                  Medications:</label>
+                <div class="mt-2">
+                  <input type="text" name="current_medications" id="current_medications" autocomplete="family-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="known_allergies" class="block text-sm font-medium leading-6 text-gray-900">Known
+                  Allergies:</label>
+                <div class="mt-2">
+                  <input type="text" name="known_allergies" id="known_allergies" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+          <!-- <div  class="sm:col-span-1 flex items-center justify-center"></div>
+                      <button id="Surgery-btn" class="btn rounded-full w-[50px] h-[50px] text-[20px]">+</button>
+                    </div> -->
+
+          <div class="border-b medication-form border-gray-900/10 pb-12">
+            <h2 class="text-base font-semibold leading-7 text-gray-900">Current Medication</h2>
+            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+              <div class="sm:col-span-3">
+                <label for="disease" class="block text-sm font-medium leading-6 text-gray-900">Dieases:</label>
+                <div class="mt-2">
+                  <input type="text" name="disease" id="disease" autocomplete="family-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="drug_name" class="block text-sm font-medium leading-6 text-gray-900">Drug name:</label>
+                <div class="mt-2">
+                  <input type="text" name="drug_name" id="drug_name" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="medication_duration" class="block text-sm font-medium leading-6 text-gray-900">Duration(In
+                  months):</label>
+                <div class="mt-2">
+                  <input type="number" name="medication_duration" id="medication_duration" autocomplete="given-name"
+                    class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-b addication-form border-gray-900/10 pb-12">
+            <div class="section-1">
+              <h2 class="text-base font-semibold leading-7 text-gray-900">Addications</h2>
+              <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+
+                <div class="sm:col-span-3">
+                  <label for="addication_name" class="block text-sm font-medium leading-6 text-gray-900">Name:</label>
+                  <div class="mt-2">
+                    <input type="text" name="addication_name" id="addication_name" autocomplete="family-name"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="addication_frequency"
+                    class="block text-sm font-medium leading-6 text-gray-900">Frequency(In week):</label>
+                  <div class="mt-2">
+                    <input type="number" name="addication_frequency" id="addication_frequency" autocomplete="given-name"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  </div>
+                </div>
+
+                <div class="sm:col-span-2">
+                  <label for="addication_duration" class="block text-sm font-medium leading-6 text-gray-900">Duration(In
+                    months):</label>
+                  <div class="mt-2">
+                    <input type="number" name="addication_duration" id="addication_duration" autocomplete="given-name"
+                      class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+          <div class="sm:col-span-1 flex items-center justify-center"></div>
+          <button id="addication-btn" class="btn rounded-full w-[50px] h-[50px] text-[20px]">+</button>
+        </div>
+
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+          <button type="button" class="text-sm font-semibold leading-6 text-gray-900">Cancel</button>
+          <button type="submit"
+            class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  const addicationBtn = document.querySelector('#addication-btn');
+  const addicationForm = document.querySelector('.addication-form');
+
+  addicationBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    const index = 1;
+    const newDiv = document.createElement('div');
+
+    newDiv.classList.add(`section-${index + 1}`);
+
+    newDiv.innerHTML = `
+                   <h2 class="text-base font-semibold leading-7 text-gray-900">Addications</h2>
+                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            
+                    <div class="sm:col-span-3">
+                      <label for="addication-name" class="block text-sm font-medium leading-6 text-gray-900">Name:</label>
+                      <div class="mt-2">
+                        <input type="text" name="addication-name" id="addication-name" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                      <label for="addication-frequency" class="block text-sm font-medium leading-6 text-gray-900">Frequency(In week):</label>
+                      <div class="mt-2">
+                        <input type="number" name="addication-frequency" id="addication-frequency" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                      <label for="addication-duration" class="block text-sm font-medium leading-6 text-gray-900">Duration(In months):</label>
+                      <div class="mt-2">
+                        <input type="number" name="addication-duration" id="addication-duration" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                      </div>
+                    </div>
+                   </div>
+    `
+
+    addicationForm.appendChild(newDiv);
+
+  })
+</script>
+
+{% endblock %}

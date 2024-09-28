@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="main-container">
+        <div class="container">
+            <div class="profile-info">
+                <div class="profile-text">
+                    <span class="hello">Hello,</span>
+                    <span class="name">{{ username }}</span>
+
+                </div>
+    
+                <div class="profile-img">
+                    <img src="" alt="profile-img">
+                </div>
+            </div>
+    
+            <div class="user-info">
+                <div class="info-params">
+                    <span class="value">34</span>
+                    <span class="param">Height</span>
+                </div>
+                <div class="info-params">
+                    <span class="value">34</span>
+                    <span class="param">Height</span>
+                </div>
+                <div class="info-params">
+                    <span class="value">34</span>
+                    <span class="param">Height</span>
+                </div>
+                <div class="info-params">
+                    <span class="value">34</span>
+                    <span class="param">Height</span>
+                </div>
+            </div>
+    
+            <div class="health-details">
+                <div class="card">
+                    <span class="measure">Heart Beat</span>
+                    <span class="measure-value">36.6</span>
+                </div>
+                <div class="card">
+                    <span class="measure">Calories</span>
+                    <span class="measure-value">36.6</span>
+                </div>
+                <div class="card">
+                    <span class="measure">Steps</span>
+                    <span class="measure-value">36.6</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="model">
+                
+                
+            <spline-viewer url="https://prod.spline.design/InciWTmX49Eq1Pgx/scene.splinecode"></spline-viewer>
+        </div>
+
+        <!-- <div id="model-section">
+            <span>Human based model</span>
+            <input type="range" id="rotation-slider" min="0" max="360" value="180">
+        </div> -->
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.28/build/spline-viewer.js"></script>
+
+{% endblock %}

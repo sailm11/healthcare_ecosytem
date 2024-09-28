@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Doctor Search Results</h1>
+    {% if doctors %}
+        <ul>
+            {% for doctor in doctors %}
+                <li>
+                    <strong>Name:</strong> {{ doctor.name }} <br>
+                    <strong>Specialty:</strong> {{ doctor.specialty }} <br>
+                    <strong>Location:</strong> {{ doctor.location }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No doctors found for your search.</p>
+    {% endif %}
+    <a href="/">Search Again</a>
+</body>
+</html>
